@@ -1,13 +1,14 @@
 <template>
   <div class="card">
     <img class="product-image" :src="promotion.product.image" />
-    <img :src="dicountImgSrc"/>
-    <h3>{{promotion.product.name}}</h3>
-    <div>{{promotion.product.description}}</div>
-    <div>Valoración: {{promotion.rating}}</div>
-    <img :src="fullStar"/>
-    <img :src="emptyStar"/>
-    <div>Vigencia: {{promotion.date_end}} | {{promotion.date_init}}</div>
+    <img class="product-discount-image" :src="dicountImgSrc"/>
+    <div class="description">
+      <img v-for="rating in promotion.rating" :key="rating" :src="fullStar"/>
+      <img v-for="rating in promotion.rating - 5" :key="rating" :src="emptyStar"/>
+      <h3>{{promotion.product.name}}</h3>
+      <p>{{promotion.product.description}}</p>
+      <p>Vigencia: {{promotion.date_end}} | {{promotion.date_init}}</p>
+    </div>
   </div>
 </template>
 
@@ -44,11 +45,31 @@ export default {
 
 <style lang="scss" scoped>
 .card{
-  border: 1px solid #444;
+  border: 0.5px solid #E2E2E2;
   margin-bottom: 10px;
-  max-width: 300px;
+  max-width: 360px;
+  position: relative;
+  font-family: 'Atlas Grotesk';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #3D3F49;
+}
+
+.description{
+  padding: 20px;
 }
 .product-image{
-  width: 200px;
+  width: 100%;
+  background-color: #FAFAFA;
+  margin-bottom: 20px;
+}
+.product-discount-image {
+position: absolute;
+left: 5.17%;
+right: 85.67%;
+top: 16.4%;
+bottom: 78.1%;
 }
 </style>
