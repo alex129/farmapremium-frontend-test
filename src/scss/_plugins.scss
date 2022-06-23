@@ -1,0 +1,18 @@
+.multiselect, .multiselect__single, .multiselect__input, .multiselect__option{
+  font-family: $default-font-family;
+  letter-spacing: $default-letter-spacing;
+  line-height: $default-line-height;
+  font-size: $default-font-size;
+}
+.multiselect__option--highlight{
+  background: $medium-grey;
+}
+.multiselect__option--selected.multiselect__option--highlight{
+  background: $dark-grey;
+}
+.multiselect__select:before{
+  top: 55%;
+}
+.multiselect__tags{
+  border: 1px solid $medium-grey;
+}

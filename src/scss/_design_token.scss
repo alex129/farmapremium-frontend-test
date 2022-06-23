@@ -1,0 +1,194 @@
+/**** Colors ****/
+$brand-01: #00b0b9;
+$brand-02: #019097;
+$brand-03: #3d3f49;
+$brand-04: #ffffff;
+$background: #f7f8fc;
+$black-grey: #000000;
+$contrast: #f9b119;
+$dark-grey: #737373;
+$error: #e30513;
+$light-grey: #fafafa;
+$medium-grey: #b1b1b1;
+$offer-01: #ffde17;
+$soft-grey: #e2e2e2;
+
+$font-thin: 100;
+$font-light: 300;
+$font-regular: 400;
+$font-medium: 500;
+$font-bold: 700;
+$font-black: 800;
+
+/**** Fonts ****/
+/** button **/
+$button-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Medium';
+$button-font-size: 13px;
+$button-letter-spacing: 0px;
+$button-line-height: 100%;
+$button-font-weight: 500;
+$button-color: black;
+
+@mixin button() {
+  font-family: $button-font-family;
+  font-size: $button-font-size;
+  letter-spacing: $button-letter-spacing;
+  line-height: $button-line-height;
+  font-weight: $button-font-weight;
+  color: $button-color;
+}
+/** default **/
+$default-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Regular';
+$default-font-size: 13px;
+$default-letter-spacing: 0px;
+$default-line-height: 20px;
+$default-font-weight: 400;
+$default-color: black;
+
+@mixin default() {
+  font-family: $default-font-family;
+  font-size: $default-font-size;
+  letter-spacing: $default-letter-spacing;
+  line-height: $default-line-height;
+  font-weight: $default-font-weight;
+  color: $default-color;
+}
+/** h1 **/
+$h1-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Medium';
+$h1-font-size: 48px;
+$h1-letter-spacing: 0px;
+$h1-line-height: 48px;
+$h1-font-weight: 500;
+$h1-color: black;
+
+@mixin h1() {
+  font-family: $h1-font-family;
+  font-size: $h1-font-size;
+  letter-spacing: $h1-letter-spacing;
+  line-height: $h1-line-height;
+  font-weight: $h1-font-weight;
+  color: $h1-color;
+}
+/** h2 **/
+$h2-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Medium';
+$h2-font-size: 30px;
+$h2-letter-spacing: 0px;
+$h2-line-height: 100%;
+$h2-font-weight: 500;
+$h2-color: black;
+
+@mixin h2() {
+  font-family: $h2-font-family;
+  font-size: $h2-font-size;
+  letter-spacing: $h2-letter-spacing;
+  line-height: $h2-line-height;
+  font-weight: $h2-font-weight;
+  color: $h2-color;
+}
+/** h3 **/
+$h3-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Regular';
+$h3-font-size: 24px;
+$h3-letter-spacing: 0px;
+$h3-line-height: 100%;
+$h3-font-weight: 400;
+$h3-color: black;
+
+@mixin h3() {
+  font-family: $h3-font-family;
+  font-size: $h3-font-size;
+  letter-spacing: $h3-letter-spacing;
+  line-height: $h3-line-height;
+  font-weight: $h3-font-weight;
+  color: $h3-color;
+}
+/** h4 **/
+$h4-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Medium';
+$h4-font-size: 18px;
+$h4-letter-spacing: 0px;
+$h4-line-height: 28px;
+$h4-font-weight: 500;
+$h4-color: black;
+
+@mixin h4() {
+  font-family: $h4-font-family;
+  font-size: $h4-font-size;
+  letter-spacing: $h4-letter-spacing;
+  line-height: $h4-line-height;
+  font-weight: $h4-font-weight;
+  color: $h4-color;
+}
+/** h5 **/
+$h5-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Regular';
+$h5-font-size: 16px;
+$h5-letter-spacing: 0px;
+$h5-line-height: 100%;
+$h5-font-weight: 400;
+$h5-color: black;
+
+@mixin h5() {
+  font-family: $h5-font-family;
+  font-size: $h5-font-size;
+  letter-spacing: $h5-letter-spacing;
+  line-height: $h5-line-height;
+  font-weight: $h5-font-weight;
+  color: $h5-color;
+}
+/** h6 **/
+$h6-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Regular';
+$h6-font-size: 12px;
+$h6-letter-spacing: 0px;
+$h6-line-height: 100%;
+$h6-font-weight: 400;
+$h6-color: black;
+
+@mixin h6() {
+  font-family: $h6-font-family;
+  font-size: $h6-font-size;
+  letter-spacing: $h6-letter-spacing;
+  line-height: $h6-line-height;
+  font-weight: $h6-font-weight;
+  color: $h6-color;
+}
+/** h7 **/
+$h7-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Medium';
+$h7-font-size: 9px;
+$h7-letter-spacing: 1.8px;
+$h7-line-height: 100%;
+$h7-font-weight: 500;
+$h7-text-transform: uppercase;
+$h7-color: black;
+
+@mixin h7() {
+  font-family: $h7-font-family;
+  font-size: $h7-font-size;
+  letter-spacing: $h7-letter-spacing;
+  line-height: $h7-line-height;
+  font-weight: $h7-font-weight;
+  text-transform: $h7-text-transform;
+  color: $h7-color;
+}
+/** h8 **/
+$h8-font-family: 'Atlas Grotesk', 'AtlasGrotesk-Regular';
+$h8-font-size: 10px;
+$h8-letter-spacing: 0px;
+$h8-line-height: 100%;
+$h8-font-weight: 400;
+$h8-color: black;
+
+@mixin h8() {
+  font-family: $h8-font-family;
+  font-size: $h8-font-size;
+  letter-spacing: $h8-letter-spacing;
+  line-height: $h8-line-height;
+  font-weight: $h8-font-weight;
+  color: $h8-color;
+}
+
+:export {
+  ffamily: $default-font-family;
+  fsize: $h8-font-size;
+  fspacing: $h8-letter-spacing;
+  fheight: $h8-line-height;
+  fweight: $h8-font-weight;
+  fcolor: $h8-color;
+}

@@ -1,0 +1,182 @@
+/*
+ * Regular fonts
+ */
+
+$primary-font-base-url: '../assets/fonts/atlas-grotesk/';
+$primary-font-format: 'truetype';
+$font-family-farmapremium: 'Atlas Grotesk';
+
+@font-face {
+  font-family: $font-family-farmapremium;
+  src: url($primary-font-base-url+'AtlasGrotesk-Black.otf') format($primary-font-format);
+  font-weight: $font-black;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-farmapremium;
+  src: url($primary-font-base-url+'AtlasGrotesk-Bold.otf') format($primary-font-format);
+  font-weight: $font-bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-farmapremium;
+  src: url($primary-font-base-url+'AtlasGrotesk-Medium.otf') format($primary-font-format);
+  font-weight: $font-medium;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-farmapremium;
+  src: url($primary-font-base-url+'AtlasGrotesk-Regular.otf') format($primary-font-format);
+  font-weight: $font-regular;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-farmapremium;
+  src: url($primary-font-base-url+'AtlasGrotesk-Light.otf') format($primary-font-format);
+  font-weight: $font-light;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-farmapremium;
+  src: url($primary-font-base-url+'AtlasGrotesk-Thin.otf') format($primary-font-format);
+  font-weight: $font-thin;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: $font-family-farmapremium;
+  src: url($primary-font-base-url+'AtlasGrotesk-Regular-Italic.otf') format($primary-font-format);
+  font-weight: $font-regular;
+  font-style: italic;
+}
+
+/*
+OVERRIDE  BOOTSTRAP FONTS
+*/
+
+html,
+body {
+  font-family: $default-font-family;
+  letter-spacing: $default-letter-spacing;
+  line-height: $default-line-height;
+  font-size: $default-font-size;
+}
+
+h1 {
+  font-size: $h1-font-size;
+  letter-spacing: $h1-letter-spacing;
+  line-height: $h1-line-height;
+  font-weight: $h1-font-weight;
+}
+
+h2 {
+  font-size: $h2-font-size;
+  letter-spacing: $h2-letter-spacing;
+  line-height: $h2-line-height;
+  font-weight: $h2-font-weight;
+}
+
+h3 {
+  font-size: $h3-font-size;
+  letter-spacing: $h3-letter-spacing;
+  line-height: $h3-line-height;
+  font-weight: $h3-font-weight;
+}
+
+h4 {
+  font-size: $h4-font-size;
+  letter-spacing: $h4-letter-spacing;
+  line-height: $h4-line-height;
+  font-weight: $h4-font-weight;
+}
+
+h5 {
+  font-size: $h5-font-size;
+  letter-spacing: $h5-letter-spacing;
+  line-height: $h5-line-height;
+  font-weight: $h5-font-weight;
+}
+
+h6 {
+  font-size: $h6-font-size;
+  letter-spacing: $h6-letter-spacing;
+  line-height: $h6-line-height;
+  font-weight: $h6-font-weight;
+}
+
+h7 {
+  font-size: $h7-font-size;
+  letter-spacing: $h7-letter-spacing;
+  line-height: $h7-line-height;
+  font-weight: $h7-font-weight;
+  text-transform: $h7-text-transform;
+}
+
+h8 {
+  font-size: $h8-font-size;
+  letter-spacing: $h8-letter-spacing;
+  line-height: $h8-line-height;
+  font-weight: $h8-font-weight;
+}
+
+b,
+strong {
+  font-weight: $font-bold;
+}
+
+.bold-medium {
+  font-size: 13px;
+  font-weight: $font-medium;
+  line-height: 16px;
+}
+
+.regular-small {
+  font-weight: $font-regular;
+  font-size: 12px;
+  line-height: 14px;
+}
+
+a {
+  color: $brand-01;
+}
+
+a:hover {
+  color: $brand-02;
+}
+
+input, input:focus-visible, input:focus{
+  border: 1px solid $medium-grey;
+  font-family: $default-font-family;
+  letter-spacing: $default-letter-spacing;
+  line-height: $default-line-height;
+  font-size: $default-font-size;
+  padding: 8px 8px;
+  border-radius: 5px;
+  width: 100%;
+  outline: none;
+  box-sizing: border-box;
+}
+button{
+  background-color: $brand-01;
+  color: white;
+  padding: 10px 12px;
+  font-weight: bold;
+  border-radius: 4px;
+  border: 0;
+  &:hover {
+    background-color: $brand-02;
+    cursor: pointer;
+  }
+}
+
+label{
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  display: block;
+}
