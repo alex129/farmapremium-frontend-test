@@ -10,6 +10,7 @@
         label="label"
         placeholder="Filtrar por"
         class="select"
+        @input="filterPromotions(filterValue)"
       />
       <multi-select
         v-model="sortValue"
@@ -26,7 +27,7 @@
       <promtion-grid
         :sort-value="sortValue"
         :filter-value="filterValue"
-        :promotions="promotions"
+        :promotions="filteredPromotions"
       />
     </div>
   </BaseView>
@@ -45,7 +46,7 @@ export default {
       filterOptions: [
         {
           label: 'Ver todos',
-          value: {}
+          value: null
         },
         {
           label: 'Filtrar por descuento mayor de 4,00€',
@@ -113,10 +114,10 @@ export default {
     }
   },
   computed: {
-    ...mapState('promotions', ['promotions', 'isFetching', 'error'])
+    ...mapState('promotions', ['promotions', 'filteredPromotions', 'isFetching', 'error'])
   },
   methods: {
-    ...mapActions('promotions', ['fetchPromotions'])
+    ...mapActions('promotions', ['fetchPromotions', 'filterPromotions'])
   },
   created () {
     this.fetchPromotions()

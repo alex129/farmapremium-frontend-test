@@ -3,8 +3,8 @@
     <img class="product-image" :src="promotion.product.image" />
     <img class="product-discount-image" :src="dicountImgSrc"/>
     <div class="description">
-      <img v-for="rating in promotion.rating" :key="rating" :src="fullStar"/>
-      <img v-for="rating in 5 - promotion.rating" :key="rating" :src="emptyStar"/>
+      <img v-for="i in promotion.rating" :key="`${i}-full`" :src="fullStar"/>
+      <img v-for="i in 5 - promotion.rating" :key="`${i}-empty`"  :src="emptyStar"/>
       <h3>{{promotion.product.name}}</h3>
       <p>{{promotion.product.description}}</p>
       <p class="text-duedate">
