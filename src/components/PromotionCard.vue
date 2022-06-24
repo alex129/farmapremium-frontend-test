@@ -4,10 +4,12 @@
     <img class="product-discount-image" :src="dicountImgSrc"/>
     <div class="description">
       <img v-for="rating in promotion.rating" :key="rating" :src="fullStar"/>
-      <img v-for="rating in promotion.rating - 5" :key="rating" :src="emptyStar"/>
+      <img v-for="rating in 5 - promotion.rating" :key="rating" :src="emptyStar"/>
       <h3>{{promotion.product.name}}</h3>
       <p>{{promotion.product.description}}</p>
-      <p>Vigencia: {{promotion.date_end}} | {{promotion.date_init}}</p>
+      <p class="text-duedate">
+        Vigencia: {{new Date(promotion.date_end).toLocaleDateString('en-us', { month:"2-digit", year:"numeric"})}} | {{new Date(promotion.date_init).toLocaleDateString('en-us', { day: "2-digit", month:"2-digit", year:"numeric"})}}
+      </p>
     </div>
   </div>
 </template>
@@ -63,13 +65,32 @@ export default {
 .product-image{
   width: 100%;
   background-color: #FAFAFA;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 .product-discount-image {
 position: absolute;
-left: 5.17%;
-right: 85.67%;
-top: 16.4%;
-bottom: 78.1%;
+top: 25px;
+left: 20px;
+}
+
+.description *{
+  margin-bottom: 10px;
+}
+.description h3{
+  font-size: 18px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 28px;
+}
+
+.description p{
+  font-size: 13px;
+}
+
+.text-duedate{
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 20px;
+  color: #019097;
 }
 </style>
