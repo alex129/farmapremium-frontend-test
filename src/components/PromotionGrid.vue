@@ -16,7 +16,7 @@
 
     <div class="promotions-grid">
       <promtion-card
-        v-for="promotion in filteredPromotions"
+        v-for="promotion in paginated"
         :key="promotion.id"
         :promotion="promotion"
       ></promtion-card>
@@ -85,8 +85,17 @@ export default {
     numePages () {
       return Math.ceil(this.promotions.length / PROMO_PER_PAGE)
     },
+    indexStart () {
+      return (this.page - 1) * PROMO_PER_PAGE
+    },
+    indexEnd () {
+      return this.indexStart + PROMO_PER_PAGE
+    },
     filteredPromotions () {
       return this.filterPromotions()
+    },
+    paginated () {
+      return this.filteredPromotions.slice(this.indexStart, this.indexEnd)
     }
   }
 }
