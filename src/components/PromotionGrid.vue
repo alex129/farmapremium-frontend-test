@@ -16,7 +16,7 @@
 
     <div class="promotions-grid">
       <promtion-card
-        v-for="promotion in promotions"
+        v-for="promotion in filteredPromotions"
         :key="promotion.id"
         :promotion="promotion"
       ></promtion-card>
@@ -27,6 +27,14 @@
 <script>
 import PromtionCard from '@/components/PromotionCard'
 const PROMO_PER_PAGE = 9
+const filterOperators = {
+  '<': (a, b) => { return a < b },
+  '>': (a, b) => { return a > b }
+}
+const sortOperators = {
+  asc: (a, b) => (a > b ? 1 : -1),
+  desc: (a, b) => (a > b ? -1 : 1)
+}
 export default {
   components: { PromtionCard },
   data () {
@@ -55,11 +63,30 @@ export default {
   methods: {
     onPageClick (selectedPage) {
       this.page = selectedPage
+    },
+    filterPromotions () {
+      let filterPromotions = this.promotions
+      if (this.filterValue && this.filterValue.value) {
+        filterPromotions = filterPromotions.filter(p => {
+          return filterOperators[this.filterValue.value.type](p[this.filterValue.value.field], this.filterValue.value.value)
+        })
+      }
+
+      if (this.sortValue && this.sortValue.value) {
+        filterPromotions = filterPromotions.sort((a, b) => {
+          return sortOperators[this.sortValue.value.value](a[this.sortValue.value.field], b[this.sortValue.value.field])
+        })
+      }
+
+      return filterPromotions
     }
   },
   computed: {
     numePages () {
       return Math.ceil(this.promotions.length / PROMO_PER_PAGE)
+    },
+    filteredPromotions () {
+      return this.filterPromotions()
     }
   }
 }

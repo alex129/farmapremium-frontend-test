@@ -10,7 +10,6 @@
         label="label"
         placeholder="Filtrar por"
         class="select"
-        @input="filterPromotions(filterValue)"
       />
       <multi-select
         v-model="sortValue"
@@ -27,7 +26,7 @@
       <promtion-grid
         :sort-value="sortValue"
         :filter-value="filterValue"
-        :promotions="filteredPromotions"
+        :promotions="promotions"
       />
     </div>
   </BaseView>
@@ -114,10 +113,10 @@ export default {
     }
   },
   computed: {
-    ...mapState('promotions', ['promotions', 'filteredPromotions', 'isFetching', 'error'])
+    ...mapState('promotions', ['promotions', 'isFetching', 'error'])
   },
   methods: {
-    ...mapActions('promotions', ['fetchPromotions', 'filterPromotions'])
+    ...mapActions('promotions', ['fetchPromotions'])
   },
   created () {
     this.fetchPromotions()

@@ -1,6 +1,5 @@
 export default () => ({
   promotions: [],
-  filteredPromotions: [],
   products: [],
   error: {
     status: 0,

@@ -17,10 +17,6 @@ export async function fetchPromotions ({ commit }) {
   }
 }
 
-export function filterPromotions ({ commit }, filter) {
-  commit('FILTER_PROMOTIONS', filter)
-}
-
 export async function fetchProducts ({ commit }) {
   try {
     commit('IS_FETCHING', true)
