@@ -83,7 +83,7 @@ export default {
   },
   computed: {
     numePages () {
-      return Math.ceil(this.promotions.length / PROMO_PER_PAGE)
+      return Math.ceil(this.filteredPromotions.length / PROMO_PER_PAGE)
     },
     indexStart () {
       return (this.page - 1) * PROMO_PER_PAGE
