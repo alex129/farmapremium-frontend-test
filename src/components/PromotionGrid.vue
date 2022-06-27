@@ -19,6 +19,7 @@
         v-for="promotion in paginated"
         :key="promotion.id"
         :promotion="promotion"
+        data-test="promotions"
       ></promtion-card>
     </div>
   </div>
@@ -65,7 +66,7 @@ export default {
       this.page = selectedPage
     },
     filterPromotions () {
-      let filterPromotions = this.promotions
+      let filterPromotions = this.promotions ? this.promotions : []
       if (this.filterValue && this.filterValue.value) {
         filterPromotions = filterPromotions.filter(p => {
           return filterOperators[this.filterValue.value.type](p[this.filterValue.value.field], this.filterValue.value.value)
