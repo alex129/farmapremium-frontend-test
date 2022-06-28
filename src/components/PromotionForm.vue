@@ -2,7 +2,7 @@
   <form @submit.prevent="submit">
     <label>Elige el producto en promoción</label>
     <multi-select
-      v-model="promotion.product"
+      v-model.trim="$v.promotion.product.$model"
       :options="products"
       track-by="id"
       label="name"
@@ -10,9 +10,16 @@
       select-label=""
       deselect-label=""
       class="select"
+      :class=" { 'form-group--error': $v.promotion.product.$error } "
     />
+    <div class="error" v-if="!$v.promotion.product.required">Product is required!</div>
+
     <label>Descuento a aplicar en el producto</label>
-    <input placeholder="Ejemplo: 1.55" type="text" v-model.number="promotion.discount" />
+    <input placeholder="Ejemplo: 1.55" type="text" v-model="$v.promotion.discount.$model" />
+    <div class="error" v-if="!$v.promotion.discount.between">Discount has to be number between 0.05 and 99.95</div>
+    <div class="error" v-if="!$v.promotion.discount.required">Discount is required!</div>
+    <div class="error" v-if="!$v.promotion.discount.multipleOfFive">Discount has to be multiple of 5!</div>
+
     <label>Fecha de inicio de la promoción</label>
     <v-date-picker
       :masks="{ title: 'MMM YYYY' }"
@@ -33,6 +40,9 @@
         />
       </template>
     </v-date-picker>
+    <div class="error" v-if="!$v.promotion.date_init.required">Date init is required!</div>
+    <div class="error" v-if="!$v.promotion.date_init.dateFifteenDaysLate">Date init must be 15 days later than the current date</div>
+
     <label>Fecha de fin de la promoción</label>
     <v-date-picker
       locale="es"
@@ -52,12 +62,29 @@
         />
       </template>
     </v-date-picker>
+    <div class="error" v-if="!$v.promotion.date_end.required">Date end is required!</div>
+    <div class="error" v-if="!$v.promotion.date_end.dateFifteenDaysLateAsDateInit">Date end must be 15 days later than the date init</div>
+
     <button type="submit">Crear promoción</button>
   </form>
 </template>
 
 <script>
 import { mapActions, mapState } from 'vuex'
+import { required, between } from 'vuelidate/lib/validators'
+const dateFifteenDaysLate = (value) => {
+  const today = new Date()
+  return today.setDate(today.getDate() + 15) <= new Date(value)
+}
+const dateFifteenDaysLateAsDateInit = (value, vm) => {
+  const date = new Date(vm.date_init)
+  return date.setDate(date.getDate() + 15) <= new Date(value)
+}
+const multipleOfFive = (value) => {
+  console.log(value, (value * 100) % 5)
+  return (value * 100) % 5 === 0
+}
+
 export default {
   data () {
     return {
@@ -77,10 +104,24 @@ export default {
     ...mapActions('promotions', ['fetchProducts']),
     submit () {
       console.log(this.promotion)
+      this.$v.$touch()
     }
   },
   created () {
     this.fetchProducts()
+  },
+  validations: {
+    promotion: {
+      date_init: { required, dateFifteenDaysLate },
+      date_end: { required, dateFifteenDaysLateAsDateInit },
+      product: { required },
+      discount: {
+        required,
+        between: between(0.05, 99.95),
+        multipleOfFive
+      },
+      rating: { required }
+    }
   }
 }
 </script>
@@ -91,5 +132,9 @@ form {
 }
 button[type="submit"]{
   margin-top: 30px;
+}
+
+.error {
+  color: red;
 }
 </style>

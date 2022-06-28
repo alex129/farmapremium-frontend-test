@@ -7,6 +7,7 @@ import axios from './plugins/axios'
 import Multiselect from 'vue-multiselect'
 import VCalendar from 'v-calendar'
 import Paginate from 'vuejs-paginate'
+import Vuelidate from 'vuelidate'
 
 // register globally
 import './scss/index.scss'
@@ -14,6 +15,7 @@ import './scss/index.scss'
 Vue.use(VCalendar)
 Vue.config.productionTip = false
 Vue.use(axios)
+Vue.use(Vuelidate)
 Vue.component('MultiSelect', Multiselect)
 Vue.component('PaginateButtons', Paginate)
 new Vue({
