@@ -4978,6 +4978,32 @@
       "date_init": "2020-11-01 00:00:00",
       "date_end": "2020-12-31 23:59:59",
       "discount": 1.5
+    },
+    {
+      "date_init": "2022-07-15 00:00:00",
+      "date_end": "2022-07-31 23:59:59",
+      "product": {
+        "id": 20,
+        "name": "Farmatint Gel",
+        "description": "Coloración capilar farmacéutica, en una amplia paleta de tonalidades. Con Active Color Complex, un bálsamo post-coloración que proporciona una doble protección al cabello. Con filtro solar y sin amoníaco.",
+        "image": "https://public-storage-cdn-farmapremium.imgix.net/contents/84b24cb0d3dabf5d2522e5505d988b91fae30976.png"
+      },
+      "discount": "99",
+      "rating": 0,
+      "id": "aZUXMP0"
+    },
+    {
+      "date_init": "2022-07-15 00:00:00",
+      "date_end": "2022-07-31 23:59:59",
+      "product": {
+        "id": 26,
+        "name": "Dodot Pañales Sensitive",
+        "description": "Pañales tan suaves como la seda, que proporcionan la máxima absorción y protección, gracias a sus tubos ultra-absorbentes. Además, disponen de indicador de humedad, que te alerta si hay que cambiar a tu bebé.",
+        "image": "https://public-storage-cdn-farmapremium.imgix.net/contents/a426446c03eab8b7d2b4471a8ce43d29b7e85540.png"
+      },
+      "discount": "99",
+      "rating": 0,
+      "id": "oWUj5nl"
     }
   ],
   "products": [

@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapActions, mapState } from 'vuex'
 import { required, between } from 'vuelidate/lib/validators'
 const dateFifteenDaysLate = (value) => {
@@ -105,6 +106,11 @@ export default {
     submit () {
       console.log(this.promotion)
       this.$v.$touch()
+      if (!this.$v.$invalid) {
+        axios.post('/promotions', this.promotion).then(res => {
+          console.log(res)
+        }).catch(err => console.log(err))
+      }
     }
   },
   created () {
